@@ -7,6 +7,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import BasicTabs from '../Tabs/TabPanel';
+
 
 const columns = [
   { id: 'name', label: 'Name', minWidth: 170 },
@@ -71,6 +73,7 @@ export default function DisplayMarkets() {
   };
 
   return (
+    <><BasicTabs />
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
@@ -118,7 +121,7 @@ export default function DisplayMarkets() {
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
-    </Paper>
+    </Paper></>
   );
 }
 

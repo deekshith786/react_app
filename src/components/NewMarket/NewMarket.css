@@ -1,0 +1,11 @@
+h1, p{
+    margin-left: 15px;
+    display: inline-block;
+    padding: 5px;
+}
+.FileButton{
+    margin: 15px;
+}
+element.style {
+    margin: 10px;
+}
