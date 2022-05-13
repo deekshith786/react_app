@@ -26,7 +26,7 @@ export const EditPagecomponent = (params) => {
 
   useEffect(()=>{
     //for worldwide fetch
-      fetch("http://localhost:9000/market/getMarketByName/Abc")
+      fetch("http://localhost:9000/market/getMarketByName/Leaf")
       .then(response => response.json())
       .then((data)=>{
           setMarketData(data);
@@ -54,47 +54,47 @@ export const EditPagecomponent = (params) => {
             </Grid>
             <Grid xs={12} sm={6} item>
             <h3>Name</h3>
-              <TextField fullWidth label="Select" placeholder="Select" variant="outlined"></TextField>
+              <TextField fullWidth value = {MarketData.marketName} placeholder={MarketData.marketName} variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
             <h3>State</h3>
-              <TextField fullWidth label="Name" placeholder="Name" variant="outlined"></TextField>
+              <TextField fullWidth value ={MarketData.marketState} placeholder="Name" variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
             <h3>Longitude</h3>
-              <TextField fullWidth label="Select" placeholder="Select" variant="outlined"></TextField>
+              <TextField fullWidth value = {MarketData.marketState} placeholder="Select" variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
             <h3>Latitude</h3>
-              <TextField fullWidth label="Select" placeholder="Select" variant="outlined"></TextField>
+              <TextField fullWidth value = {MarketData.marketState} placeholder="Select" variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
             <h3>Map Zoom</h3>
-              <TextField fullWidth label="Select" placeholder="Select" variant="outlined"></TextField>
+              <TextField fullWidth value = {MarketData.marketState} placeholder="Select" variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
             <h3>Android Map Zoom</h3>
-              <TextField fullWidth label="Select" placeholder="Select" variant="outlined"></TextField>
+              <TextField fullWidth value = {MarketData.marketState} placeholder="Select" variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
             <h3>Ios Map Zoom</h3>
-              <TextField fullWidth label="Select" placeholder="Select" variant="outlined"></TextField>
+              <TextField fullWidth value = {MarketData.marketState} placeholder="Select" variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
             <h3>Default Home screen</h3>
-              <TextField fullWidth label="Select" placeholder="Select" variant="outlined"></TextField>
+              <TextField fullWidth value = {MarketData.marketState} placeholder="Select" variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
             <h3>Reservation maximum duration</h3>
-              <TextField fullWidth label="Select" placeholder="Select" variant="outlined"></TextField>
+              <TextField fullWidth value = {MarketData.marketState} placeholder="Select" variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
             <h3>Validation account reservation maximum duration</h3>
-              <TextField fullWidth label="Select" placeholder="Select" variant="outlined"></TextField>
+              <TextField fullWidth value = {MarketData.marketState} placeholder="Select" variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
             <h3>Description</h3>
-              <TextField fullWidth label="Select" placeholder="Select" variant="outlined"></TextField>
+              <TextField fullWidth value = {MarketData.marketState} placeholder="Select" variant="outlined"></TextField>
             </Grid><br/>
             
             <Button variant="contained" onClick={getAllData()}>Edit</Button>
