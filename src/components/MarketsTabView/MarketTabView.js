@@ -3,9 +3,11 @@ import { Tab, AppBar, Tabs, Button, Box } from "@mui/material";
 import { ActiveTableData } from "../TableDataView/ActiveTableView/ActiveTableData";
 import './MarketTabView.css';
 import { ArchivedTableData } from "../TableDataView/ArchivedTableView/ArchivedTableData";
+import { useNavigate } from "react-router-dom";
 
 export const MarketTabs = (params) => {
-    
+  
+  let navigate = useNavigate();
   const [value, setValue] = React.useState(0);
   const handleTabs = (e, val) => {
     setValue(val);
@@ -18,7 +20,7 @@ export const MarketTabs = (params) => {
         <Tabs value={value} onChange={handleTabs} textColor="secondary" indicatorColor="secondary">
           <Tab label="Active" />
           <Tab label="Archived" />
-          <Box className="NewBox"><Button variant="contained" >New</Button></Box>
+          <Box className="NewBox"><Button variant="contained" onClick={()=>{ navigate('/new')}}>New</Button></Box>
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>

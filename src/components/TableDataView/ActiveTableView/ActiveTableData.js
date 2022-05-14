@@ -8,10 +8,12 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import { Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 
 export const ActiveTableData = (params) => {
 
+    let navigate = useNavigate();
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
           backgroundColor: theme.palette.common.black,
@@ -81,7 +83,7 @@ export const ActiveTableData = (params) => {
                   <StyledTableCell align="center">{row.protein}</StyledTableCell>
                   <StyledTableCell align="center">{row.protein}</StyledTableCell>
                   <StyledTableCell align="center">
-                        <Button variant='text' color='primary'>Edit</Button>
+                        <Button variant='text' color='primary' onClick={()=>{ navigate('/edit')}}>Edit</Button>
                         <Button variant='contained' color='error'>Archive</Button>
                   </StyledTableCell>
                 </StyledTableRow>
