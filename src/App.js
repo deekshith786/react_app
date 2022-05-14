@@ -1,10 +1,9 @@
 import "./App.css";
-import { EditPagecomponent } from "./components/EditComponent/EditPage";
 import DisplayMarkets from "./components/DisplayMarket/DisplayMarketView";
 import { BrowserRouter as Router, Route, Routes, Switch } from "react-router-dom";
-import { Button } from "@mui/material";
-import { NewMarketcomponent } from "./components/NewMarket/NewMarket";
+import { NewMarket } from "./components/NewMarket/NewMarket";
 import { MarketTabs } from "./components/MarketsTabView/MarketTabView";
+import { EditMarket } from "./components/EditMarket/EditPage";
 
 function App() {
   return (
@@ -12,9 +11,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<DisplayMarkets/>}>abc</Route>        
-        <Route path="/new" element={<NewMarketcomponent/>}>abc</Route>        
+        <Route path="/new" element={<NewMarket/>}>abc</Route>        
         <Route path="/market" element={<DisplayMarkets/>}>abc</Route>
-        <Route path="/edit" element={<EditPagecomponent/>}>abc</Route>
+        <Route path="/edit" element={<EditMarket/>}>abc</Route>
         <Route path="/tab" element={<MarketTabs/>}>abc</Route>
       </Routes>
     </Router>

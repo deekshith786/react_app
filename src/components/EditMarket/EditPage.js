@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 import './EditPage.css'
 
-export const EditPagecomponent = (params) => {
+export const EditMarket = (params) => {
 
   const [MarketData,setMarketData] = useState([]);
   const [currentMarketData,setCurrentMarketData] = useState([]);

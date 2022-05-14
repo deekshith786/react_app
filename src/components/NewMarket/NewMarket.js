@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 import './NewMarket.css'
 
-export const NewMarketcomponent = (params) => {
+export const NewMarket = (params) => {
 
   const [MarketData,setMarketData] = useState([]);
   const [currentMarketData,setCurrentMarketData] = useState([]);
