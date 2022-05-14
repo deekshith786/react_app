@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Tab, AppBar, Tabs, Button, Box } from "@mui/material";
-import { ActiveTableData } from "../TableDataView/TableDataView";
+import { ActiveTableData } from "../TableDataView/ActiveTableView/ActiveTableData";
 import './MarketTabView.css';
 import { ArchivedTableData } from "../TableDataView/ArchivedTableView/ArchivedTableData";
 
