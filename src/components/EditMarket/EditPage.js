@@ -1,4 +1,4 @@
-import {  Button, Grid, TextField} from "@mui/material";
+import {  Button, Checkbox, FormControlLabel, FormGroup, Grid, InputLabel, TextField} from "@mui/material";
 import { useEffect } from "react";
 import { useState } from "react";
 import Swal from "sweetalert2";  
@@ -39,12 +39,26 @@ export const EditMarket = (params) => {
 
   return (
     <div className="main-container">
-      <div className="editHeader">
         <h1>Edit</h1><hr/>
-        {/* <p style={{display:'block'}}><b>Market</b></p> */}
-        {/* <p style={{display:'block'}}><b>Photo</b></p> */}
         <br/><br/>
-        <input accept="image/*" id="upload-company-logo" type='file'  />
+        <div className="editHeader">
+          <div style={{ display: "inline-grid" }}>
+            <InputLabel className="InputLabel">Market</InputLabel>
+            <input accept="image/*" id="upload-company-logo" type='file'  />
+          </div>
+          <FormGroup>
+            <FormControlLabel control={<Checkbox value={currentMarketData.visible} />} label="Top Market" />
+            <FormControlLabel control={<Checkbox value={currentMarketData.visible}/>} label="Visible" />
+          </FormGroup>
+        <div>
+          <InputLabel className="InputLabel">Import Locations</InputLabel>
+          <InputLabel className="InputLabel">Popular Destination</InputLabel>
+          <input accept="image/*" id="upload-company-logo" type='file'  />
+        </div>
+        <div style={{ display: "inline-grid" }}>
+          <InputLabel className="InputLabel">Venue Groups</InputLabel>
+            <input accept="image/*" id="upload-company-logo" type='file'  />
+          </div>
       </div>
       <div className="MuiCardContent-root">
             <Grid container spacing={1}></Grid>

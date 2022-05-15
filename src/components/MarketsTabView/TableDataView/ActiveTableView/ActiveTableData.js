@@ -45,7 +45,7 @@ export const ActiveTableData = (params) => {
               
     return (
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 1000 }} aria-label="customized table">
+          <Table sx={{ width: 1 }} aria-label="customized table">
             <TableHead>
               <TableRow>
                 <StyledTableCell align="center">Name</StyledTableCell>

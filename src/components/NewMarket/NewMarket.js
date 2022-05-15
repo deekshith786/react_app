@@ -1,5 +1,4 @@
-import {  Button, Grid, TextField} from "@mui/material";
-import { useEffect } from "react";
+import {  Button, Checkbox, FormControlLabel, FormGroup, Grid, InputLabel, TextField} from "@mui/material";
 import { useState } from "react";
 import Swal from "sweetalert2";  
 
@@ -26,24 +25,20 @@ export const NewMarket = (params) => {
       'success'
     )  }
 
-//   useEffect(()=>{
-//     //for worldwide fetch
-//       fetch(MarketData?.length == 0 ? "http://localhost:9000/market/getMarketById/420a0ca6-e56a-4bf5-b461-af9f0ae7f62c": "http://localhost:9000/market/getMarketById/"+MarketData?.marketID)
-//       .then(response => response.json())
-//       .then((data)=>{
-//           setMarketData(data);
-//           setCurrentMarketData(data)
-//           console.log(data);
-//       });
-//     },[]);
-
   return (
     <div className="main-container">
-      <div className="editHeader">
         <h1>New Market</h1><hr/>
         <br/><br/>
-        <input accept="image/*" id="upload-company-logo" type='file'  />
-      </div>
+        <div className="newHeader">
+          <div style={{ display: "inline-grid" }}>
+            <InputLabel className="InputLabel">Market</InputLabel>
+            <input accept="image/*" id="upload-company-logo" type='file'  />
+          </div>
+          <FormGroup>
+            <FormControlLabel control={<Checkbox value={currentMarketData.visible} />} label="Top Market" />
+            <FormControlLabel control={<Checkbox value={currentMarketData.visible}/>} label="Visible" />
+          </FormGroup>
+        </div>
       <div className="MuiCardContent-root">
             <Grid container spacing={1}></Grid>
             <Grid xs={12} sm={6} item>

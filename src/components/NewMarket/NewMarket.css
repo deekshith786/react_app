@@ -1,11 +1,25 @@
 .main-container{
-    width: 50%;
+    width: 85%;
     margin: 0 auto;
 }
 h1, p{
     margin-left: 32px;
     display: inline-block;
     padding: 5px;
+}
+
+.newHeader {
+    display: flex;
+    gap: 50%;
+    margin: 1%;
+}
+
+h5 {
+    margin-top: 0 auto;
+}
+
+.InputLabel{
+    margin-top: 10px;
 }
 .FileButton{
     margin: 35px;
@@ -40,7 +54,7 @@ input[type=file]::file-selector-button {
 }
 
 input[type=file]{
-    width: 50%;
+    width: 100%;
 }
 
 .swal2-title {
