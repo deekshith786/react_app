@@ -66,11 +66,7 @@ export const NewMarket = (params) => {
               <TextField fullWidth  onChange={(event)=>{console.log("updated photo" ,event,); setCurrentMarketData({...currentMarketData, "photo":event.target.value})}} placeholder= "Photo" variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
-            <h3>Top Market</h3>
-              <TextField fullWidth  onChange={(event)=>{console.log("updated top market" ,event,); setCurrentMarketData({...currentMarketData, "topMarket":event.target.value})}} placeholder= "topMarket" variant="outlined"></TextField>
-            </Grid>
-            <Grid xs={12} sm={6} item>
-            <h3>State</h3>
+            <h3> Market State</h3>
               <TextField fullWidth onChange={(event)=>{console.log("updated state" ,event,); setCurrentMarketData({...currentMarketData, "marketState":event.target.value})}} placeholder= "State" variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
@@ -78,12 +74,12 @@ export const NewMarket = (params) => {
               <TextField fullWidth onChange={(event)=>{console.log("updated Longitude" ,event,); setCurrentMarketData({...currentMarketData, "longitude":event.target.value})}} placeholder= "Longitude" variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
-            <h3>Active Location Count</h3>
-              <TextField fullWidth onChange={(event)=>{console.log("updated Active location count" ,event,); setCurrentMarketData({...currentMarketData, "activeLocationsCount":event.target.value})}} placeholder= "Active Location Count" variant="outlined"></TextField>
-            </Grid>
-            <Grid xs={12} sm={6} item>
             <h3>Latitude</h3>
               <TextField fullWidth onChange={(event)=>{console.log("updated Latitude" ,event,); setCurrentMarketData({...currentMarketData, "latitude":event.target.value})}} placeholder="Latitude" variant="outlined"></TextField>
+            </Grid>
+            <Grid xs={12} sm={6} item>
+            <h3>Active Location Count</h3>
+              <TextField fullWidth onChange={(event)=>{console.log("updated Active location count" ,event,); setCurrentMarketData({...currentMarketData, "activeLocationsCount":event.target.value})}} placeholder= "Active Location Count" variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
             <h3>Map Zoom</h3>
@@ -108,10 +104,6 @@ export const NewMarket = (params) => {
             <Grid xs={12} sm={6} item>
             <h3>Validation account reservation maximum duration</h3>
               <TextField fullWidth onChange={(event)=>{console.log("houseAccountReservationMaxDurationDays" ,event,); setCurrentMarketData({...currentMarketData, "houseAccountReservationMaxDurationDays":event.target.value})}} placeholder="houseAccountReservationMaxDurationDays" variant="outlined"></TextField>
-            </Grid>
-            <Grid xs={12} sm={6} item>
-            <h3>Visible</h3>
-              <TextField fullWidth onChange={(event)=>{console.log("Visile" ,event,); setCurrentMarketData({...currentMarketData, "visible":event.target.value})}} placeholder="houseAccountReservationMaxDurationDays" variant="outlined"></TextField>
             </Grid>
             <Grid xs={12} sm={6} item>
             <h3>Description</h3>

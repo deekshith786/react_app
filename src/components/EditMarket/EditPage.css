@@ -13,6 +13,16 @@ h1, p{
     gap: 10%;
     margin: 1%;
 }
+
+input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button{
+    padding: 0;    
+}
+
 h5 {
     margin-top: 0 auto;
 }

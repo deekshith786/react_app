@@ -4,6 +4,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";  
 
 import './EditPage.css'
+import { VenuGroupDialogBox } from "./VenuGroup/VenuGroup";
 
 export const EditMarket = (params) => {
 
@@ -57,7 +58,7 @@ export const EditMarket = (params) => {
         </div>
         <div style={{ display: "inline-grid" }}>
           <InputLabel className="InputLabel">Venue Groups</InputLabel>
-            <input accept="image/*" id="upload-company-logo" type='file'  />
+          <Button><VenuGroupDialogBox/></Button>
           </div>
       </div>
       <div className="MuiCardContent-root">

@@ -15,8 +15,8 @@ export const NavBar = () => {
                 <Button color="inherit" onClick={()=>{ navigate('/')}}>Dashboard</Button>
               </Typography>
               <Button color="inherit" onClick={()=>{ navigate('/new')}}>New Market</Button>
-              <Button color="inherit" onClick={()=>{ navigate('/edit')}}>Edit</Button>
-              <Button color="inherit" onClick={()=>{ navigate('/tab')}}>MarketData</Button>
+              <Button color="inherit" onClick={()=>{ navigate('/edit')}}>Edit Market</Button>
+              <Button color="inherit" onClick={()=>{ navigate('/tab')}}>Market Data</Button>
               <Button color="inherit">SignOut</Button>
             </Toolbar>
           </AppBar>
