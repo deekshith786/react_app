@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Tab, AppBar, Tabs, Button, Box } from "@mui/material";
-import { ActiveTableData } from "../TableDataView/ActiveTableView/ActiveTableData";
 import './MarketTabView.css';
-import { ArchivedTableData } from "../TableDataView/ArchivedTableView/ArchivedTableData";
 import { useNavigate } from "react-router-dom";
+import { ActiveTableData }  from './TableDataView/ActiveTableView/ActiveTableData'
+import { ArchivedTableData } from './TableDataView/ArchivedTableView/ArchivedTableData'
 
 export const MarketTabs = (params) => {
   
