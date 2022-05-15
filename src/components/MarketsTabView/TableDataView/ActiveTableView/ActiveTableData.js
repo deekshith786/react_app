@@ -9,6 +9,7 @@ import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 export const ActiveTableData = (params) => {
@@ -34,31 +35,20 @@ export const ActiveTableData = (params) => {
         },
       }));
 
-      function createData(name, calories, fat, carbs, protein) {
-        return { name, calories, fat, carbs, protein };
-      }
-      
-      const [MarketData,setMarketData] = useState([]);
-    //   fetch("http://localhost:9000/market/getAllMarketsByState")
-    //   .then((data)=>{
-    //       setMarketData(data);
-    //       console.log(data);
-    //   })
-
-      const rows = [
-        createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-        createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-        createData('Eclair', 262, 16.0, 24, 6.0),
-        createData('Cupcake', 305, 3.7, 67, 4.3),
-        createData('Gingerbread', 356, 16.0, 49, 3.9),
-      ];
-      
+      const [ActiveMarketData,setActiveMarketData] = useState([]);
+      useEffect(()=> {
+        fetch("http://localhost:9000/market/getAllMarketsByState/Active/0")
+        .then((res) => res.json())
+                .then((res) => {setActiveMarketData(res)})
+                .catch((err) => console.error(err))
+        }, [])
+              
     return (
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 1000 }} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>Name</StyledTableCell>
+                <StyledTableCell align="center">Name</StyledTableCell>
                 <StyledTableCell align="center">Photo</StyledTableCell>
                 <StyledTableCell align="center">Location</StyledTableCell>
                 <StyledTableCell align="center">Time Zone</StyledTableCell>
@@ -70,18 +60,16 @@ export const ActiveTableData = (params) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
+              {ActiveMarketData.map((row) => (
                 <StyledTableRow key={row.name}>
-                  <StyledTableCell component="th" scope="row">
-                    {row.name}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">{row.calories}</StyledTableCell>
-                  <StyledTableCell align="center">{row.fat}</StyledTableCell>
-                  <StyledTableCell align="center">{row.carbs}</StyledTableCell>
-                  <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                  <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                  <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                  <StyledTableCell align="center">{row.protein}</StyledTableCell>
+                  <StyledTableCell component="th" scope="row">{row.marketName}</StyledTableCell>
+                  <StyledTableCell align="center">{row.photo}</StyledTableCell>
+                  <StyledTableCell align="center">{row.center}</StyledTableCell>
+                  <StyledTableCell align="center">{row.timeZone}</StyledTableCell>
+                  <StyledTableCell align="center">{row.latitude}</StyledTableCell>
+                  <StyledTableCell align="center">{row.longitude}</StyledTableCell>
+                  <StyledTableCell align="center">{row.activeLocationsCount}</StyledTableCell>
+                  <StyledTableCell align="center">{row.competitorLocationsCount}</StyledTableCell>
                   <StyledTableCell align="center">
                         <Button variant='text' color='primary' onClick={()=>{ navigate('/edit')}}>Edit</Button>
                         <Button variant='contained' color='error'>Archive</Button>

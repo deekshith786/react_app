@@ -8,6 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import { Button } from '@mui/material';
+import { useEffect } from 'react';
 
 
 export const ArchivedTableData = (params) => {
@@ -32,24 +33,13 @@ export const ArchivedTableData = (params) => {
         },
       }));
 
-      function createData(name, calories, fat, carbs, protein) {
-        return { name, calories, fat, carbs, protein };
-      }
-      
-      const [MarketData,setMarketData] = useState([]);
-    //   fetch("http://localhost:9000/market/getAllMarketsByState")
-    //   .then((data)=>{
-    //       setMarketData(data);
-    //       console.log(data);
-    //   })
-
-      const rows = [
-        createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-        createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-        createData('Eclair', 262, 16.0, 24, 6.0),
-        createData('Cupcake', 305, 3.7, 67, 4.3),
-        createData('Gingerbread', 356, 16.0, 49, 3.9),
-      ];
+      const [ArchivedMarketData,setArchivedMarketData] = useState([]);
+      useEffect(()=> {
+        fetch("http://localhost:9000/market/getAllMarketsByState/Archived/0")
+        .then((res) => res.json())
+                .then((res) => {setArchivedMarketData(res)})
+                .catch((err) => console.error(err))
+        }, [])
       
     return (
         <TableContainer component={Paper}>
@@ -68,19 +58,17 @@ export const ArchivedTableData = (params) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
+              {ArchivedMarketData.map((row) => (
                 <StyledTableRow key={row.name}>
-                  <StyledTableCell component="th" scope="row">
-                    {row.name}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">{row.calories}</StyledTableCell>
-                  <StyledTableCell align="center">{row.fat}</StyledTableCell>
-                  <StyledTableCell align="center">{row.carbs}</StyledTableCell>
-                  <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                  <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                  <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                  <StyledTableCell align="center">{row.protein}</StyledTableCell>
-                  <StyledTableCell align="center"><Button variant='contained' color='success'>Archive</Button></StyledTableCell>
+                  <StyledTableCell component="th" scope="row">{row.marketName}</StyledTableCell>
+                  <StyledTableCell align="center">{row.photo}</StyledTableCell>
+                  <StyledTableCell align="center">{row.center}</StyledTableCell>
+                  <StyledTableCell align="center">{row.timeZone}</StyledTableCell>
+                  <StyledTableCell align="center">{row.latitude}</StyledTableCell>
+                  <StyledTableCell align="center">{row.longitude}</StyledTableCell>
+                  <StyledTableCell align="center">{row.activeLocationsCount}</StyledTableCell>
+                  <StyledTableCell align="center">{row.competitorLocationsCount}</StyledTableCell>
+                  <StyledTableCell align="center"><Button variant='contained' color='success'>Recover</Button></StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
