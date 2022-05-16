@@ -1,12 +1,16 @@
 import {  Button, Checkbox, FormControlLabel, FormGroup, Grid, InputLabel, TextField} from "@mui/material";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import Swal from "sweetalert2";  
 
 import './EditPage.css'
 import { VenuGroupDialogBox } from "./VenuGroup/VenuGroup";
 
 export const EditMarket = (params) => {
+
+  const {state} = useLocation();
+  const { rowData } = state;
 
   const [MarketData,setMarketData] = useState([]);
   const [currentMarketData,setCurrentMarketData] = useState([]);
@@ -28,8 +32,7 @@ export const EditMarket = (params) => {
     )  }
 
   useEffect(()=>{
-    //for worldwide fetch
-      fetch(MarketData?.length == 0 ? "http://localhost:9000/market/getMarketById/420a0ca6-e56a-4bf5-b461-af9f0ae7f62c": "http://localhost:9000/market/getMarketById/"+MarketData?.marketID)
+      fetch("http://localhost:9000/market/getMarketById/"+rowData.marketID)
       .then(response => response.json())
       .then((data)=>{
           setMarketData(data);

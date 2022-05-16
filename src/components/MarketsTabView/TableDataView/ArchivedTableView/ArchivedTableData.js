@@ -42,6 +42,7 @@ export const ArchivedTableData = (params) => {
         }, [])
       
     return (
+      <div style={{margin:'30px'}}>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 1000 }} aria-label="customized table">
             <TableHead>
@@ -74,6 +75,7 @@ export const ArchivedTableData = (params) => {
             </TableBody>
           </Table>
         </TableContainer>
+        </div>
       );
     
 };

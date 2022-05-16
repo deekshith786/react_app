@@ -11,7 +11,6 @@ import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-
 export const ActiveTableData = (params) => {
 
     let navigate = useNavigate();
@@ -44,6 +43,7 @@ export const ActiveTableData = (params) => {
         }, [])
               
     return (
+      <div style={{margin:'30px'}}>
         <TableContainer component={Paper}>
           <Table sx={{ width: 1 }} aria-label="customized table">
             <TableHead>
@@ -60,18 +60,18 @@ export const ActiveTableData = (params) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {ActiveMarketData.map((row) => (
-                <StyledTableRow key={row.name}>
-                  <StyledTableCell component="th" scope="row">{row.marketName}</StyledTableCell>
-                  <StyledTableCell align="center">{row.photo}</StyledTableCell>
-                  <StyledTableCell align="center">{row.center}</StyledTableCell>
-                  <StyledTableCell align="center">{row.timeZone}</StyledTableCell>
-                  <StyledTableCell align="center">{row.latitude}</StyledTableCell>
-                  <StyledTableCell align="center">{row.longitude}</StyledTableCell>
-                  <StyledTableCell align="center">{row.activeLocationsCount}</StyledTableCell>
-                  <StyledTableCell align="center">{row.competitorLocationsCount}</StyledTableCell>
+              {ActiveMarketData.map((rowData) => (
+                <StyledTableRow key={rowData.name}>
+                  <StyledTableCell component="th" scope="row">{rowData.marketName}</StyledTableCell>
+                  <StyledTableCell align="center">{rowData.photo}</StyledTableCell>
+                  <StyledTableCell align="center">{rowData.center}</StyledTableCell>
+                  <StyledTableCell align="center">{rowData.timeZone}</StyledTableCell>
+                  <StyledTableCell align="center">{rowData.latitude}</StyledTableCell>
+                  <StyledTableCell align="center">{rowData.longitude}</StyledTableCell>
+                  <StyledTableCell align="center">{rowData.activeLocationsCount}</StyledTableCell>
+                  <StyledTableCell align="center">{rowData.competitorLocationsCount}</StyledTableCell>
                   <StyledTableCell align="center">
-                        <Button variant='text' color='primary' onClick={()=>{ navigate('/edit')}}>Edit</Button>
+                        <Button variant='text' color='primary' onClick={()=>{navigate('/edit', { state: { rowData : rowData }})}}>Edit</Button>
                         <Button variant='contained' color='error'>Archive</Button>
                   </StyledTableCell>
                 </StyledTableRow>
@@ -79,6 +79,7 @@ export const ActiveTableData = (params) => {
             </TableBody>
           </Table>
         </TableContainer>
+        </div>
       );
     
 };

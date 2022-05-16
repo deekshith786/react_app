@@ -17,7 +17,7 @@ export const MarketTabs = (params) => {
       <h1>Market</h1>
       
       <AppBar position="static" color="transparent">
-        <Tabs value={value} onChange={handleTabs} textColor="secondary" indicatorColor="secondary">
+        <Tabs value={value} onChange={handleTabs} textColor="primary" indicatorColor="primary">
           <Tab label="Active" />
           <Tab label="Archived" />
           <Box className="NewBox"><Button variant="contained" onClick={()=>{ navigate('/new')}}>New</Button></Box>
@@ -35,5 +35,5 @@ export const MarketTabs = (params) => {
 
 function TabPanel(props) {
   const { children, value, index } = props;
-  return (<div>{value === index && <h1>{children}</h1>}</div>);
+  return (<div>{value === index && <div>{children}</div>}</div>);
 }
