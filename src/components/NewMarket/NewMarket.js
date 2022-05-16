@@ -1,5 +1,6 @@
 import {  Button, Checkbox, FormControlLabel, FormGroup, Grid, InputLabel, TextField} from "@mui/material";
 import { useState } from "react";
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Swal from "sweetalert2";  
 
 import './NewMarket.css'
@@ -13,7 +14,7 @@ export const NewMarket = (params) => {
     console.log(JSON.stringify(currentMarketData))
     const newdata = JSON.stringify(currentMarketData);
 
-    fetch("http://localhost:9000/market/addMarket", {method:"POST", body:newdata, 
+    fetch("http://localhost:9005/market/addMarket", {method:"POST", body:newdata, 
     headers: new Headers({
       'Content-Type':'application/json'
       }),})
@@ -108,8 +109,8 @@ export const NewMarket = (params) => {
             <Grid xs={12} sm={6} item>
             <h3>Description</h3>
               <TextField fullWidth onChange={(event)=>{console.log("updated Description" ,event,); setCurrentMarketData({...currentMarketData, "description":event.target.value})}} placeholder="Description" variant="outlined"></TextField>
-            </Grid><br/>          
-            <Button variant="contained" onClick={()=>updateMarketData()}>Create Market</Button>
+            </Grid><br/>
+            <Button variant="contained" endIcon={<AddCircleIcon />} onClick={()=>updateMarketData()}>Create</Button>
      </div>
     </div>
 

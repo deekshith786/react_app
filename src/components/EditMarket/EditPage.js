@@ -2,6 +2,7 @@ import {  Button, Checkbox, FormControlLabel, FormGroup, Grid, InputLabel, TextF
 import { useEffect } from "react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import SaveIcon from '@mui/icons-material/Save';
 import Swal from "sweetalert2";  
 
 import './EditPage.css'
@@ -19,7 +20,7 @@ export const EditMarket = (params) => {
     console.log(JSON.stringify(currentMarketData))
     const newdata = JSON.stringify(currentMarketData);
 
-    fetch("http://localhost:9000/market/updateMarket/"+currentMarketData.marketID, {method:"PUT", body:newdata, 
+    fetch("http://localhost:9005/market/updateMarket/"+currentMarketData.marketID, {method:"PUT", body:newdata, 
     headers: new Headers({
       'Content-Type':'application/json'
       }),})
@@ -32,7 +33,7 @@ export const EditMarket = (params) => {
     )  }
 
   useEffect(()=>{
-      fetch("http://localhost:9000/market/getMarketById/"+rowData.marketID)
+      fetch("http://localhost:9005/market/getMarketById/"+rowData.marketID)
       .then(response => response.json())
       .then((data)=>{
           setMarketData(data);
@@ -114,7 +115,7 @@ export const EditMarket = (params) => {
             <h3>Description</h3>
               <TextField fullWidth value = {currentMarketData.description} onChange={(event)=>{console.log("updated Description" ,event,); setCurrentMarketData({...currentMarketData, "description":event.target.value})}} placeholder="Select" variant="outlined"></TextField>
             </Grid><br/>          
-            <Button variant="contained" onClick={()=>updateMarketData()}>Edit</Button>
+            <Button variant="contained" endIcon={<SaveIcon />} onClick={()=>updateMarketData()}>Save</Button>
      </div>
     </div>
 

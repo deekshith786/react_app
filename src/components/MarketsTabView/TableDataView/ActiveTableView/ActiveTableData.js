@@ -10,6 +10,8 @@ import { useState } from 'react';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import ArchiveIcon from '@mui/icons-material/Archive';
+import Swal from 'sweetalert2';
 
 export const ActiveTableData = (params) => {
 
@@ -36,12 +38,29 @@ export const ActiveTableData = (params) => {
 
       const [ActiveMarketData,setActiveMarketData] = useState([]);
       useEffect(()=> {
-        fetch("http://localhost:9000/market/getAllMarketsByState/Active/0")
+        fetch("http://localhost:9005/market/getAllMarketsByStatus/Active/0")
         .then((res) => res.json())
                 .then((res) => {setActiveMarketData(res)})
                 .catch((err) => console.error(err))
         }, [])
               
+      function archiveData (rowData) {
+
+        console.log(rowData);
+        fetch("http://localhost:9005/market/updateMarketStatus/"+rowData.marketID, {method:"PUT", 
+        headers: new Headers({
+          'Content-Type':'application/json'
+          }),})
+        .then(response=>console.log(response.json()));
+        console.log(JSON.stringify(rowData))
+        Swal.fire(
+          'Archived Data Successfully!',
+          'Yay!',
+          'success'
+        ) 
+        window.location.reload(false);
+      }
+      
     return (
       <div style={{margin:'30px'}}>
         <TableContainer component={Paper}>
@@ -72,7 +91,7 @@ export const ActiveTableData = (params) => {
                   <StyledTableCell align="center">{rowData.competitorLocationsCount}</StyledTableCell>
                   <StyledTableCell align="center">
                         <Button variant='text' color='primary' onClick={()=>{navigate('/edit', { state: { rowData : rowData }})}}>Edit</Button>
-                        <Button variant='contained' color='error'>Archive</Button>
+                        <Button variant='contained' color='error' endIcon={<ArchiveIcon />} onClick={()=>archiveData(rowData)}>Archive</Button>
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

@@ -9,6 +9,8 @@ import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import { Button } from '@mui/material';
 import { useEffect } from 'react';
+import ReplayIcon from '@mui/icons-material/Replay';
+import Swal from 'sweetalert2';
 
 
 export const ArchivedTableData = (params) => {
@@ -35,12 +37,30 @@ export const ArchivedTableData = (params) => {
 
       const [ArchivedMarketData,setArchivedMarketData] = useState([]);
       useEffect(()=> {
-        fetch("http://localhost:9000/market/getAllMarketsByState/Archived/0")
+        fetch("http://localhost:9005/market/getAllMarketsByStatus/Archived/0")
         .then((res) => res.json())
                 .then((res) => {setArchivedMarketData(res)})
                 .catch((err) => console.error(err))
         }, [])
       
+      function activeData (row) {
+
+        console.log(row);
+        fetch("http://localhost:9005/market/updateMarketStatus/"+row.marketID, {method:"PUT", 
+        headers: new Headers({
+          'Content-Type':'application/json'
+          }),})
+        .then(response=>console.log(response.json()));
+        console.log(JSON.stringify(row))
+        Swal.fire(
+          'Activated Data Successfully!',
+          'Yay!',
+          'success'
+        ) 
+        window.location.reload(false);
+      }
+        
+  
     return (
       <div style={{margin:'30px'}}>
         <TableContainer component={Paper}>
@@ -69,7 +89,7 @@ export const ArchivedTableData = (params) => {
                   <StyledTableCell align="center">{row.longitude}</StyledTableCell>
                   <StyledTableCell align="center">{row.activeLocationsCount}</StyledTableCell>
                   <StyledTableCell align="center">{row.competitorLocationsCount}</StyledTableCell>
-                  <StyledTableCell align="center"><Button variant='contained' color='success'>Recover</Button></StyledTableCell>
+                  <StyledTableCell align="center"><Button variant='contained' color='success' endIcon={<ReplayIcon />} onClick={()=>activeData(row)}>Recover</Button></StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
