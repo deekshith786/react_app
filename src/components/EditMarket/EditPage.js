@@ -6,7 +6,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import Swal from "sweetalert2";  
 
 import './EditPage.css'
-import { VenuGroupDialogBox } from "./VenuGroup/VenuGroup";
+import { VenueGroupDialogBox } from "./VenueGroup/VenueGroup";
 
 export const EditMarket = (params) => {
 
@@ -62,7 +62,7 @@ export const EditMarket = (params) => {
         </div>
         <div style={{ display: "inline-grid" }}>
           <InputLabel className="InputLabel">Venue Groups</InputLabel>
-          <Button><VenuGroupDialogBox/></Button>
+          <Button><VenueGroupDialogBox/></Button>
           </div>
       </div>
       <div className="MuiCardContent-root">
@@ -115,7 +115,7 @@ export const EditMarket = (params) => {
             <h3>Description</h3>
               <TextField fullWidth value = {currentMarketData.description} onChange={(event)=>{console.log("updated Description" ,event,); setCurrentMarketData({...currentMarketData, "description":event.target.value})}} placeholder="Select" variant="outlined"></TextField>
             </Grid><br/>          
-            <Button variant="contained" endIcon={<SaveIcon />} onClick={()=>updateMarketData()}>Save</Button>
+            <Button variant="contained" startIcon={<SaveIcon />} onClick={()=>updateMarketData()}>Save</Button>
      </div>
     </div>
 

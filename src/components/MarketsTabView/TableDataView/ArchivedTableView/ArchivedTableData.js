@@ -15,6 +15,8 @@ import Swal from 'sweetalert2';
 
 export const ArchivedTableData = (params) => {
 
+  const {searched} = params;  
+
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
           backgroundColor: theme.palette.common.black,
@@ -35,14 +37,24 @@ export const ArchivedTableData = (params) => {
         },
       }));
 
+      const [FilteredData,setFilteredData] = useState([]);
+
       const [ArchivedMarketData,setArchivedMarketData] = useState([]);
       useEffect(()=> {
         fetch("http://localhost:9005/market/getAllMarketsByStatus/Archived/0")
         .then((res) => res.json())
-                .then((res) => {setArchivedMarketData(res)})
+                .then((res) => {setArchivedMarketData(res); setFilteredData(res)})
                 .catch((err) => console.error(err))
         }, [])
       
+        useEffect(()=> {
+          console.log(searched)
+          const filteredRows = ArchivedMarketData.filter((row) => {
+            return row.marketName.toString().toLowerCase().includes(searched.toString().toLowerCase());
+          });
+          setFilteredData(filteredRows);
+        },[searched])
+
       function activeData (row) {
 
         console.log(row);
@@ -79,7 +91,7 @@ export const ArchivedTableData = (params) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {ArchivedMarketData.map((row) => (
+              {FilteredData.map((row) => (
                 <StyledTableRow key={row.name}>
                   <StyledTableCell component="th" scope="row">{row.marketName}</StyledTableCell>
                   <StyledTableCell align="center">{row.photo}</StyledTableCell>

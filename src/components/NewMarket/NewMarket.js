@@ -1,6 +1,6 @@
 import {  Button, Checkbox, FormControlLabel, FormGroup, Grid, InputLabel, TextField} from "@mui/material";
 import { useState } from "react";
-import AddCircleIcon from '@mui/icons-material/AddCircle';
+import AddIcon from '@mui/icons-material/Add';
 import Swal from "sweetalert2";  
 
 import './NewMarket.css'
@@ -110,7 +110,7 @@ export const NewMarket = (params) => {
             <h3>Description</h3>
               <TextField fullWidth onChange={(event)=>{console.log("updated Description" ,event,); setCurrentMarketData({...currentMarketData, "description":event.target.value})}} placeholder="Description" variant="outlined"></TextField>
             </Grid><br/>
-            <Button variant="contained" endIcon={<AddCircleIcon />} onClick={()=>updateMarketData()}>Create</Button>
+            <Button variant="contained" startIcon={<AddIcon />} onClick={()=>updateMarketData()}>Create</Button>
      </div>
     </div>
 

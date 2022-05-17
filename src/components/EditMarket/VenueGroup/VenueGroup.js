@@ -7,7 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export const VenuGroupDialogBox = () => {
+export const VenueGroupDialogBox = () => {
     
   const [open, setOpen] = React.useState(false);
 
@@ -22,10 +22,10 @@ export const VenuGroupDialogBox = () => {
   return (
     <div>
       <Button variant="contained" onClick={handleClickOpen}>
-        Add Venu Group
+        Add Venue Group
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle><b>New Venu Group</b></DialogTitle>
+        <DialogTitle><b>New Venue Group</b></DialogTitle>
         <DialogContent>
           <DialogContentText><b>Title</b></DialogContentText>
           <TextField margin="dense" label="Email Address" type="email" fullWidth variant="outlined"/>
