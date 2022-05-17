@@ -8,8 +8,9 @@ import './Dashboard.css'
 export const Dashboard = () => {
 
     return (
-        <div className="image">
-            <img src ={parking}/>
+        <div className="home">
+            <div className="title">Space for you.</div>
+            <div className="sub-title">Place for you.</div>
         </div>
 )};
 
