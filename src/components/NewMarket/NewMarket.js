@@ -1,4 +1,5 @@
 import {  Button, Checkbox, FormControlLabel, FormGroup, Grid, InputLabel, TextField} from "@mui/material";
+import { motion } from 'framer-motion';
 import { useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
 import Swal from "sweetalert2";  
@@ -27,8 +28,16 @@ export const NewMarket = (params) => {
     )  }
 
   return (
-    <div className="main-container">
-        <h1>New Market</h1><hr/>
+    <motion.div className="main-container"
+    initial={{y: '100vw'}}
+    animate={{y: 0}}
+    transition={{delay:0.3, duration : 0.3, type: 'tween' }}
+>
+        <motion.h1
+          initial={{x: -250, opacity:0}}
+          animate={{x: -30, opacity:1}}
+          transition={{delay:0.5, duration : 0.3, type: 'tween' }}
+        >New Market</motion.h1><hr/>
         <br/><br/>
         <div className="newHeader">
           <div style={{ display: "inline-grid" }}>
@@ -112,7 +121,7 @@ export const NewMarket = (params) => {
             </Grid><br/>
             <Button variant="contained" startIcon={<AddIcon />} onClick={()=>updateMarketData()}>Create</Button>
      </div>
-    </div>
+    </motion.div>
 
   );
 };

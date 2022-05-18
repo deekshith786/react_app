@@ -7,6 +7,7 @@ import { ArchivedTableData } from './TableDataView/ArchivedTableView/ArchivedTab
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import { motion } from 'framer-motion';
 import { useState } from "react";
 
 const Search = styled('div')(({ theme }) => ({
@@ -65,7 +66,11 @@ export const MarketTabs = (params) => {
     <div>
     <div className="topbar">
         <div className="heading">
-        <h1>Market</h1>
+        <motion.h1
+          initial={{x: -200, opacity:0}}
+          animate={{x: -5, opacity:1}}
+          transition={{delay:0.5, duration : 0.3, type: 'tween' }}
+        >Market</motion.h1>
         </div>
           <div className="search-bar">
             <Search className="innner-search">

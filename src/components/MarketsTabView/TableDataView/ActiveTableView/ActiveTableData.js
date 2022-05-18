@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import ArchiveIcon from '@mui/icons-material/Archive';
 import Swal from 'sweetalert2';
+import { motion } from 'framer-motion';
 
 export const ActiveTableData = (params) => {
 
@@ -72,7 +73,11 @@ export const ActiveTableData = (params) => {
       }
       
     return (
-      <div style={{margin:'30px'}}>
+      <motion.div style={{margin:'30px'}}
+      initial={{y: '100vw'}}
+      animate={{y: 0}}
+      transition={{delay:0.2, duration : 0.2, type: 'tween' }}
+  >
         <TableContainer component={Paper}>
           <Table sx={{ width: 1 }} aria-label="customized table">
             <TableHead>
@@ -108,7 +113,7 @@ export const ActiveTableData = (params) => {
             </TableBody>
           </Table>
         </TableContainer>
-        </div>
+        </motion.div>
       );
     
 };
