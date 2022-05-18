@@ -11,6 +11,7 @@ import { Button } from '@mui/material';
 import { useEffect } from 'react';
 import ReplayIcon from '@mui/icons-material/Replay';
 import Swal from 'sweetalert2';
+import { motion } from 'framer-motion';
 
 
 export const ArchivedTableData = (params) => {
@@ -74,7 +75,11 @@ export const ArchivedTableData = (params) => {
         
   
     return (
-      <div style={{margin:'30px'}}>
+      <motion.div style={{margin:'30px'}}
+      initial={{x: '100vw'}}
+      animate={{x: 0}}
+      transition={{delay:0.2, duration : 0.2 }}
+>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 1000 }} aria-label="customized table">
             <TableHead>
@@ -107,7 +112,7 @@ export const ArchivedTableData = (params) => {
             </TableBody>
           </Table>
         </TableContainer>
-        </div>
+        </motion.div>
       );
     
 };

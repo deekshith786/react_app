@@ -13,10 +13,10 @@
     font-size: 70pt;
     font-weight: 700;
     color: "#00000";
-    top: 43%;
-    left: 50%;
+    top: 50%;
+    left: 35%;
     text-align: center;  
-    position: sticky;  
+    position: absolute;  
 }
 
 .sub-title {
